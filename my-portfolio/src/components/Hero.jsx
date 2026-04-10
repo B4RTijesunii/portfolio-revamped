@@ -1,4 +1,5 @@
 import React from "react";
+import profileImg from "../assets/profileImg.jpg";
 
 const Hero = () => {
   return (
@@ -16,8 +17,32 @@ const Hero = () => {
             I build responsive, accessible, and interactive web experiences
             using modern web technologies.
           </p>
+          {/*BUTTONS*/}
+          <div className="flex gap-4 justify-center md:justify-start">
+            <a
+              href="#projects"
+              className="px-6 py-3 bg-black text-white rounded-xl hover:bg-gray-800 transition"
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              className="px-6 py-3 border border-black rounded-xl hover:bg-black hover:text-white transition"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+        {/* RIGHT IMAGE VISUAL */}
+        <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+          <img
+            src={profileImg}
+            alt="profile"
+            className="w-72 h-72 md:w-96 md:h-96 object-cover rounded-full shadow-lg"
+          />
         </div>
       </div>
     </section>
   );
 };
+export default Hero;
