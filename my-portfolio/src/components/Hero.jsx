@@ -3,9 +3,9 @@ import profileImg from "../assets/profileImg.jpg";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center px-6 md:px-20 bg-white">
-      <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center justify-between">
-        <div className="md:w-1/2 space-y-6 text-center md:text-left">
+    <section className="min-h-screen flex items-center px-6 md:px-20">
+      <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="md:w-1/2 text-center space-y-6 text-center md:text-left">
           <p className="text-lg text-gray-500">Hello, I'm</p>
           <h1 className="text-4x1 md:text-6xl font-bold text-gray-900">
             Olayode Oyebanke
@@ -34,7 +34,7 @@ const Hero = () => {
           </div>
         </div>
         {/* RIGHT IMAGE VISUAL */}
-        <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+        <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center items-center">
           <img
             src={profileImg}
             alt="profile"
