@@ -11,22 +11,32 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full fixed top-0 left-0 z-50 bg-[#020617]/80 backdrop-blur-xl border-b border-white/10">
+    <nav className="w-full fixed top-0 left-0 z-50 bg-[#030712]/80 backdrop-blur-xl border-b border-white/10">
       {/* MAIN NAV */}
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-4 text-white">
+      <div className="max-w-7xl mx-auto h-16 flex items-center justify-between px-6 md:px-12 py-4 text-white">
         {/* LOGO */}
         <div className="flex items-center gap-2 cursor-pointer">
           <span className="text-xl font-semibold">Olayode</span>
-          <span className="text-blue-400 font-semibold">.dev</span>
+          <span className="text-[#6366F1] font-semibold">.dev</span>
         </div>
 
         {/* DESKTOP NAV */}
         <ul className="hidden md:flex items-center gap-10 text-sm font-medium text-gray-300">
-          <li className="hover:text-blue-500 cursor-pointer">Home</li>
-          <li className="hover:text-blue-500 cursor-pointer">About</li>
-          <li className="hover:text-blue-500 cursor-pointer">Projects</li>
-          <li className="hover:text-blue-500 cursor-pointer">Blog</li>
-          <li className="hover:text-blue-500 cursor-pointer">Contact</li>
+          <li className="hover:text-blue-500 transition cursor-pointer">
+            Home
+          </li>
+          <li className="hover:text-blue-500 transition cursor-pointer">
+            About
+          </li>
+          <li className="hover:text-blue-500 transition cursor-pointer">
+            Projects
+          </li>
+          <li className="hover:text-blue-500 transition cursor-pointer">
+            Blog
+          </li>
+          <li className="hover:text-blue-500 transition cursor-pointer">
+            Contact
+          </li>
         </ul>
 
         {/* RIGHT SIDE */}
