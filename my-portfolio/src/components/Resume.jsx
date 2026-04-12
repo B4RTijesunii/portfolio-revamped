@@ -7,7 +7,7 @@ export default function Resume() {
   return (
     <div
       id="Resume"
-      className="min-h-screen px-6 md:px-20 py-20 bg-gray-500 dark:bg-[020617] text-gray-900 dark:text-white transition-colors duration-300"
+      className="min-h-screen px-6 md:px-20 py-20 bg-[#E3EBFC] dark:bg-[020617] text-gray-900 dark:text-white transition-colors duration-300"
     >
       {/* BACK BUTTON */}
       <button
