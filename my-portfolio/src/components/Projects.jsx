@@ -1,19 +1,31 @@
 import React from "react";
 import { motion } from "framer-motion";
+import p1 from "../assets/news-homepage.jpg";
+import p2 from "../assets/e-commerce.png";
+import p3 from "../assets/weather.png";
 
 const projects = [
   {
-    title: "Portfolio Website",
+    title: "News Homepage",
     description:
       "A modern responsive portfoliio built with React and Tailwind CSS.",
+    image: p1,
+    live: "#",
+    github: "#",
   },
   {
     title: "E-commerce UI",
     description: "Clean and responsive shopping interface with great UX.",
+    image: p2,
+    live: "#",
+    github: "#",
   },
   {
     title: "Weather App",
     description: "Admin dashboard with analytics and data visualization.",
+    image: p3,
+    live: "#",
+    github: "#",
   },
 ];
 
@@ -59,8 +71,12 @@ const Projects = () => {
               {/* CARD */}
               <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:scale-105 transition duration-300 shadow-lg">
                 {/* IMAGE */}
-                <div className="h-40 rounded-lg mb- bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-sm text-white/70">
-                  Project Image
+                <div className="h-40 rounded-lg mb-4 overflow-hidden ">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 backdrop:transition duration-300"
+                  />
                 </div>
 
                 {/* TEXT */}

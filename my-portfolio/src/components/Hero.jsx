@@ -58,16 +58,36 @@ const Hero = () => {
           {/* SOCIALS */}
           <div className="flex gap-5 justify-center md:justify-start pt-4 text-gray-400">
             <a
-              href="#"
+              href="https://github.com/B4RTijesunii"
               className="hover:text-gray-400 transition-colors duration-300 text-xl"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaGithub />
             </a>
-            <a href="#" className="hover:text-blue-400 transition">
-              LinkedIn
+            <a
+              href="https://www.linkedin.com/in/olayode-oyebanke-876b44294/"
+              className="hover:text-gray-400 transition-colors duration-300 text-xl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin />
             </a>
-            <a href="#" className="hover:text-blue-400 transition">
-              Twitter
+            <a
+              href="#"
+              className="hover:text-gray-400 transition-colors duration-300 text-xl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaEnvelope />
+            </a>
+            <a
+              href="#"
+              className="hover:text-gray-400 transition-colors duration-300 text-xl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter />
             </a>
           </div>
         </motion.div>
