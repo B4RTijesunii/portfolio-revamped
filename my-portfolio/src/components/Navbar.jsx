@@ -29,13 +29,17 @@ export default function Navbar() {
             About
           </li>
           <li className="hover:text-blue-500 transition cursor-pointer">
-            Projects
+            <a href="#projects" onClick={() => setMenuOpen(false)}>
+              Projects
+            </a>
           </li>
           <li className="hover:text-blue-500 transition cursor-pointer">
             Blog
           </li>
           <li className="hover:text-blue-500 transition cursor-pointer">
-            Contact
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
+              Contact
+            </a>
           </li>
         </ul>
 
