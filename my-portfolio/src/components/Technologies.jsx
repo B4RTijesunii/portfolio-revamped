@@ -23,7 +23,7 @@ const Technologies = () => {
   ];
 
   return (
-    <div className="w-full py-12 bg-[#030712]">
+    <div className="w-full py-20 bg-white dark:bg-[#020617] text-gray-900 dark:text-white transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4">
         {/* SECTION HEADING */}
         <p className="text-center text-gray-400 text-sm uppercase tracking-widest mb-8">

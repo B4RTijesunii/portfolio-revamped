@@ -27,7 +27,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="bg-[#020617] text-white px-6 md:px-20 py-20"
+      className="px-6 md:px-20 py-20 bg-white dark:bg-[#020617] text-gray-900 dark:text-white transition-colors duration-300"
     >
       <div className="max-w-3xl font-bold mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center">Contact me</h2>

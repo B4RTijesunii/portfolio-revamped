@@ -33,7 +33,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="relative bg-[#020617] text-white px-6 md:px-20 py-20 overflow-hidden"
+      className="relative px-6 md:px-20 py-20 overflow-hidden bg-white dark:bg-[#020617] text-gray-600 dark:text-gray-300 transition-colors duration-300"
     >
       {/* BACKGROUND GLOW */}
       <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-blue-600 opacity-20 blur-[120px]"></div>

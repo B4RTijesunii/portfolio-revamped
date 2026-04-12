@@ -7,7 +7,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 
 const Hero = () => {
   return (
-    <section className="relative bg-[#030712] text-white min-h-screen flex items-center px-6 md:px-20 pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center px-6 md:px-20 pt-20 overflow-hidden bg-white dark:bg-[#030712] text-gray-900 dark:text-white">
       {/* BACKGROUND GLOW */}
       <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-blue-600 opacity-20 blur-[120px]"></div>
       <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-purple-600 opacity-20 blur-[120px]"></div>
