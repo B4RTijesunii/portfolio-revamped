@@ -1,9 +1,14 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Resume from "./components/Resume";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-[#020617] dark:text-white dark:text-white transition-colors duration-300">
-      <Home />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/resume" element={<Resume />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
 import Resume from "../components/Resume";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [darkMode, setDarkMode] = useState(
@@ -92,12 +93,12 @@ export default function Navbar() {
           </button>
 
           {/* RESUME */}
-          <a
-            href="/Resume"
-            className="px-5 py-2 bg-indigo-500 hover:bg-indigo-600 text-sm rounded-lg transition text-white"
+          <Link
+            to="/resume"
+            className="hidden md:block px-5 py-2 bg-indigo-500 hover:bg-indigo-600 text-sm rounded-lg transition text-white"
           >
             Resume
-          </a>
+          </Link>
 
           {/* HAMBURGER */}
           <div
@@ -135,9 +136,13 @@ export default function Navbar() {
             </a>
           ))}
 
-          <button className="mt-2 px-5 py-2 bg-indigo-500 hover:bg-indigo-600 text-sm rounded-lg transition text-white">
+          <Link
+            to="/resume"
+            onClick={() => setMenuOpen(false)}
+            className="mt-2 px-5 py-2 bg-indigo-500 hover:bg-indigo-600 text-sm rounded-lg transition text-white text-center"
+          >
             Resume
-          </button>
+          </Link>
         </div>
       </div>
     </nav>
