@@ -1,47 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
-import Resume from "../components/Resume";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
-  const [darkMode, setDarkMode] = useState(
-    () => localStorage.getItem("theme") === "dark",
-  );
+export default function Navbar({ toggleTheme, darkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-
-  // APPLY THEME
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
-
-  const toggleTheme = () => setDarkMode(!darkMode);
-
-  // SCROLL SPY
-  useEffect(() => {
-    const sections = document.querySelectorAll("section");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.6 },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, []);
 
   const navItems = ["home", "about", "projects", "blog", "contact"];
 
@@ -51,6 +14,42 @@ export default function Navbar() {
         ? "text-blue-500"
         : "text-gray-600 dark:text-gray-300 hover:text-blue-500"
     }`;
+
+  // ✅ FIXED SCROLL SPY (safe mount timing)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let mostVisible = null;
+        let maxRatio = 0;
+
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio;
+            mostVisible = entry.target.id;
+          }
+        });
+
+        if (mostVisible) {
+          setActiveSection(mostVisible);
+        }
+      },
+      {
+        threshold: [0.3, 0.6, 0.9],
+        rootMargin: "-80px 0px -40% 0px",
+      },
+    );
+
+    // delay ensures sections exist
+    const timeout = setTimeout(() => {
+      const sections = document.querySelectorAll("section[id]");
+      sections.forEach((section) => observer.observe(section));
+    }, 100);
+
+    return () => {
+      clearTimeout(timeout);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <nav className="w-full fixed top-0 left-0 z-50 backdrop-blur-xl border-b bg-white/80 dark:bg-[#030712]/80 border-black/10 dark:border-white/10">
@@ -80,7 +79,7 @@ export default function Navbar() {
 
         {/* RIGHT SIDE */}
         <div className="flex items-center gap-4">
-          {/* DARK MODE TOGGLE */}
+          {/* THEME TOGGLE */}
           <button
             onClick={toggleTheme}
             className="p-2 rounded-lg bg-gray-200 dark:bg-white/10 hover:scale-105 transition"
@@ -88,7 +87,7 @@ export default function Navbar() {
             {darkMode ? (
               <FiSun className="text-white text-lg" />
             ) : (
-              <FiMoon className="text-gray-800 text-lg dark:text-white" />
+              <FiMoon className="text-gray-800 dark:text-white text-lg" />
             )}
           </button>
 
