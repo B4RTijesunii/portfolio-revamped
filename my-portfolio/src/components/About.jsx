@@ -58,7 +58,7 @@ const About = () => {
               JavaScript
             </p>
             <p>
-              <span className="font-medium">Oppen to:</span> Internships &
+              <span className="font-medium">Open to:</span> Internships &
               Freelance
             </p>
           </div>
