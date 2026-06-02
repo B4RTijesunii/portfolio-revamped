@@ -5,7 +5,7 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title> About Olayode Oyebanke | Frontend Developer in Nigeria</title>
+        <title>Olayode Oyebanke | Frontend Developer in Nigeria</title>
 
         <meta
           name="description"
@@ -14,7 +14,7 @@ const About = () => {
 
         <meta
           name="keywords"
-          content="Learn more about Olayoe Oyebanke, a frontend Developerbased in Nigeria, React Developer Nigeria, JavaScript Developer, Portfolio"
+          content="Learn more about Olayode Oyebanke, a Frontend Developer based in Nigeria, React Developer Nigeria, JavaScript Developer, Portfolio"
         />
       </Helmet>
 
