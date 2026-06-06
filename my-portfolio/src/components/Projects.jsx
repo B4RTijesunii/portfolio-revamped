@@ -1,31 +1,47 @@
 import React from "react";
 import { motion } from "framer-motion";
 import p1 from "../assets/news-homepage.jpg";
-import p2 from "../assets/e-commerce.png";
+import p2 from "../assets/B4Rshop.png";
 import p3 from "../assets/weather.png";
+import p4 from "../assets/cleardifference.png";
 
 const projects = [
   {
     title: "News Homepage",
     description:
-      "A modern responsive portfoliio built with React and Tailwind CSS.",
+      "A modern responsive portfolio built with React and Tailwind CSS.",
     image: p1,
-    live: "#",
+    live: "https://final-news-homepage.vercel.app/",
     github: "#",
   },
   {
     title: "E-commerce UI",
     description: "Clean and responsive shopping interface with great UX.",
     image: p2,
-    live: "#",
+    live: "https://b4rshoppingwebsite.vercel.app/",
     github: "#",
   },
   {
     title: "Weather App",
-    description: "Admin dashboard with analytics and data visualization.",
+    description: "A weather app with real-time data and clean UI.",
     image: p3,
-    live: "#",
+    live: "https://meteor-weather-app.vercel.app/",
     github: "#",
+  },
+  {
+    title: "Clear Difference Event",
+    description:
+      "Working responsive website for an events decorator and manager.",
+    image: p4,
+    live: "https://clear-difference-event.vercel.app/",
+    github: "#",
+  },
+  {
+    title: "University Project",
+    description: "Website for a University",
+    image: "",
+    live: "https://my-awesome-project-blue.vercel.app/",
+    github: "",
   },
 ];
 
@@ -68,15 +84,17 @@ const Projects = () => {
               transition={{ delay: index * 0.2 }}
               className="group relative"
             >
-              {/* CARD */}
-              <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:scale-105 transition duration-300 shadow-lg">
-                {/* IMAGE */}
-                <div className="h-40 rounded-lg mb-4 overflow-hidden ">
+              {/* CARD — scale removed from here so links aren't affected */}
+              <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-6 transition duration-300 shadow-lg">
+                {/* IMAGE — scale and glow scoped here */}
+                <div className="relative h-40 rounded-lg mb-4 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 backdrop:transition duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
+                  {/* HOVER GLOW — image only */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-30 blur-md transition duration-300"></div>
                 </div>
 
                 {/* TEXT */}
@@ -88,21 +106,28 @@ const Projects = () => {
 
                 {/* LINKS */}
                 <div className="flex gap-4 text-sm">
-                  <a href="#" className="text-blue-400 hover:text-white">
-                    Live
-                  </a>
-                  <a
-                    href="#"
-                    className="text-blue-400 hover:text-white transition  "
-                  >
-                    GitHub
-                  </a>
+                  {project.live !== "#" && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-white transition"
+                    >
+                      Live
+                    </a>
+                  )}
+                  {project.github !== "#" && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-white transition"
+                    >
+                      GitHub
+                    </a>
+                  )}
                 </div>
               </div>
-
-              {/* HOVER GLOW */}
-
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-20 blur-xl transition"></div>
             </motion.div>
           ))}
         </div>
@@ -110,4 +135,5 @@ const Projects = () => {
     </section>
   );
 };
+
 export default Projects;
