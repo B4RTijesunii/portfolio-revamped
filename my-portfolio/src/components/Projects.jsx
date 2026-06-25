@@ -4,6 +4,7 @@ import p1 from "../assets/news-homepage.jpg";
 import p2 from "../assets/B4Rshop.png";
 import p3 from "../assets/weather.png";
 import p4 from "../assets/cleardifference.png";
+import p5 from "../assets/moviewebsite.png";
 
 const projects = [
   {
@@ -37,11 +38,11 @@ const projects = [
     github: "#",
   },
   {
-    title: "University Project",
-    description: "Website for a University",
-    image: "",
-    live: "https://my-awesome-project-blue.vercel.app/",
-    github: "",
+    title: "B4RStudio",
+    description: "A full-stack movie and TV show discovery platform",
+    image: "p5",
+    live: "https://b4rstudio.vercel.app/",
+    github: "#",
   },
 ];
 
