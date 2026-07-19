@@ -5,6 +5,7 @@ import p2 from "../assets/B4Rshop.png";
 import p3 from "../assets/weather.png";
 import p4 from "../assets/cleardifference.png";
 import p5 from "../assets/moviewebsite.png";
+import p6 from "../assets/Architecture.png";
 
 const projects = [
   {
@@ -40,8 +41,15 @@ const projects = [
   {
     title: "B4RStudio",
     description: "A full-stack movie and TV show discovery platform",
-    image: "p5",
+    image: p5,
     live: "https://b4rstudio.vercel.app/",
+    github: "#",
+  },
+  {
+    title: "Boyede Studio",
+    description: "A website for an Architect",
+    image: p6,
+    live: "https://architect-ochre-beta.vercel.app/",
     github: "#",
   },
 ];
