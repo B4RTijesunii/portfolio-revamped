@@ -6,6 +6,7 @@ import p3 from "../assets/weather.png";
 import p4 from "../assets/cleardifference.png";
 import p5 from "../assets/moviewebsite.png";
 import p6 from "../assets/Architecture.png";
+import p7 from "../assets/b4rlibrary.png";
 
 const projects = [
   {
@@ -50,6 +51,20 @@ const projects = [
     description: "A website for an Architect",
     image: p6,
     live: "https://architect-ochre-beta.vercel.app/",
+    github: "#",
+  },
+  {
+    title: "B4R Library",
+    description: "A full stack reading tracking app",
+    image: p7,
+    live: "https://b4rlibrary.vercel.app/",
+    github: "#",
+  },
+  {
+    title: "Dornier Modern Architecture",
+    description: "A business website for an architect",
+    image: p6,
+    live: "https://dornier-modern-architecture.vercel.app/",
     github: "#",
   },
 ];
