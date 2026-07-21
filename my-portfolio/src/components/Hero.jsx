@@ -30,7 +30,7 @@ const Hero = () => {
           </h1>
 
           <h2 className="text-lg md:text-xl text-gray-300">
-            Frontend Developer
+            FullStack Developer Developer
           </h2>
 
           <p className="text-gray-400 max-w-md mx-auto md:mx-0">
