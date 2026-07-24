@@ -96,7 +96,7 @@ const Hero = () => {
             className="flex flex-wrap gap-4 justify-center md:justify-start pt-2"
           >
             <a
-              href="#projects"
+              href="/projects"
               className="px-6 py-3 rounded-lg font-medium text-sm transition-transform hover:scale-[1.03]"
               style={{
                 background: "rgba(243, 209, 138, 0.15)",

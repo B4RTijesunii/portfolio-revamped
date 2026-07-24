@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-// anchors scroll-spy on home page sections; "link" navigates to its own page
+// sectionId = what to track while scrolling the home page
+// target = where clicking actually navigates (route or anchor)
 const links = [
-  { label: "Home", type: "anchor", target: "home" },
-  { label: "About", type: "anchor", target: "about" },
-  { label: "Projects", type: "anchor", target: "projects" },
-  { label: "Building", type: "link", target: "/building" },
-  { label: "Contact", type: "anchor", target: "contact" },
+  { label: "Home", type: "anchor", target: "home", sectionId: "home" },
+  { label: "About", type: "anchor", target: "about", sectionId: "about" },
+  {
+    label: "Projects",
+    type: "anchor",
+    target: "projects",
+    sectionId: "projects",
+  },
+  {
+    label: "Building",
+    type: "link",
+    target: "/building",
+    sectionId: "currently-building",
+  },
+  { label: "Contact", type: "anchor", target: "contact", sectionId: "contact" },
 ];
 
 export default function Navbar() {
@@ -16,11 +27,9 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    const anchorTargets = links
-      .filter((l) => l.type === "anchor")
-      .map((l) => l.target);
+    const trackedIds = links.map((l) => l.sectionId).filter(Boolean);
 
-    const sections = anchorTargets
+    const sections = trackedIds
       .map((id) => document.getElementById(id))
       .filter(Boolean);
 
@@ -45,10 +54,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [location.pathname]);
 
-  const isActive = (link) =>
-    link.type === "anchor"
-      ? location.pathname === "/" && activeSection === link.target
-      : location.pathname === link.target;
+  const isActive = (link) => {
+    if (location.pathname === "/") {
+      return activeSection === link.sectionId;
+    }
+    // on non-home pages, only route-based links can be active
+    return link.type === "link" && location.pathname === link.target;
+  };
 
   return (
     <nav
