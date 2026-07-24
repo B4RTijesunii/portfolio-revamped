@@ -15,11 +15,9 @@ const item = {
   },
 };
 
-// Edit this array as your in-progress work changes —
-// keep status to a short honest label, not a fake percentage.
 export const builds = [
   {
-    name: "Bookshelf",
+    name: "B4R Library",
     status: "In development",
     description:
       "A full-stack reading tracker — search books, log progress, and get AI-assisted recommendations.",
@@ -34,6 +32,7 @@ export const builds = [
       "Prisma",
       "JWT",
       "Open Library API",
+
       "Gemini API",
     ],
   },
@@ -45,27 +44,20 @@ export const builds = [
     tech: ["React", "Vite", "TMDB API"],
   },
   {
-    // PLACEHOLDER — no details given yet, replace with the real description and tech
     name: "DevTrack",
     status: "In development",
     description:
-      "PLACEHOLDER — describe what DevTrack actually does before this goes live.",
-    tech: ["React"], // TODO: confirm actual stack
+      "A full-stack app that tracks GitHub commit and gives review of progress weekly.",
+    tech: ["React", "Tailwind CSS", "Vite", "GitHub API", "Gemini API"],
   },
   {
-    // PLACEHOLDER — no details given yet, replace with the real description and tech
     name: "B4R Wallet",
     status: "Early stage",
-    description:
-      "PLACEHOLDER — describe what B4R Wallet actually does before this goes live.",
-    tech: ["React"], // TODO: confirm actual stack
+    description: "A full-stack app that tracks savings and expenses",
+    tech: ["React", "Vite", "Tailwind CSS"],
   },
 ];
 
-/**
- * preview: if true, shows only the first 2 builds + a "see all" link to /building
- * (used on the home page). If false, shows the full list (used on the /building page).
- */
 const CurrentlyBuilding = ({ preview = false }) => {
   const visibleBuilds = preview ? builds.slice(0, 2) : builds;
 

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-// sectionId = what to track while scrolling the home page
-// target = where clicking actually navigates (route or anchor)
 const links = [
   { label: "Home", type: "anchor", target: "home", sectionId: "home" },
   { label: "About", type: "anchor", target: "about", sectionId: "about" },

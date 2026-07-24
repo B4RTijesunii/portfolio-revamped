@@ -16,7 +16,6 @@ const container = {
   show: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
 
-// single settle-in bounce, no infinite loop
 const iconItem = {
   hidden: { opacity: 0, y: 0 },
   show: {

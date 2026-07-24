@@ -25,7 +25,6 @@ const About = () => {
         style={{ background: "#030712" }}
       >
         <div className="max-w-6xl mx-auto mb-5 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* LEFT SIDE TEXT — reveals from the left */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -50,8 +49,8 @@ const About = () => {
               React and Tailwind CSS.
             </p>
             <p className="mb-4" style={{ color: "#A6ADBB" }}>
-              I have hands-on experience developing real-world projects,
-              including API-based applications, where I focus on clean design,
+              I have hands-on experience developing real projects, including
+              API-based applications, where I focus on clean design,
               performance, and usability.
             </p>
             <p style={{ color: "#A6ADBB" }}>
@@ -114,7 +113,6 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE CARD — reveals from the right */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}

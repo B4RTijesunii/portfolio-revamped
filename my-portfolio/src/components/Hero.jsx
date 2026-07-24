@@ -39,7 +39,6 @@ const Hero = () => {
           "linear-gradient(180deg, #030712, #050816, #090B14, #030712)",
       }}
     >
-      {/* GOLD AMBIENT GLOW — single, soft, off-center */}
       <div
         className="absolute top-[-120px] right-[-80px] w-[480px] h-[480px] rounded-full pointer-events-none"
         style={{
@@ -208,7 +207,6 @@ const Hero = () => {
             ✦
           </span>
 
-          {/* PORTRAIT — mask fades edges into the bg, no hard crop */}
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
@@ -227,7 +225,6 @@ const Hero = () => {
             />
           </motion.div>
 
-          {/* side caption, mirrors the reference */}
           <div
             className="hidden md:block absolute text-[11px] leading-relaxed text-right"
             style={{ color: "#7B8191", top: "22%", right: "0" }}

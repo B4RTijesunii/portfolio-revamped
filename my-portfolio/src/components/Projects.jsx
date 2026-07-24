@@ -37,8 +37,6 @@ export const projects = [
     image: p3,
     live: "https://meteor-weather-app.vercel.app/",
     github: "#",
-    // verify actual weather API used (OpenWeather, WeatherAPI, etc.)
-    tech: ["React", "Tailwind CSS", "Weather API"],
   },
   {
     title: "Clear Difference Event",
@@ -65,19 +63,10 @@ export const projects = [
     image: p6,
     live: "https://architect-ochre-beta.vercel.app/",
     github: "#",
-    // verify stack — assumed to match your other architect builds
+
     tech: ["React", "Tailwind CSS"],
   },
-  {
-    title: "B4R Library",
-    description:
-      "A full-stack reading tracker with book search, progress logging, and user accounts — an earlier build in the same product space as the Bookshelf rebuild currently in progress.",
-    image: p7,
-    live: "https://b4rlibrary.vercel.app/",
-    github: "#",
-    // verify backend — placeholder based on your typical stack
-    tech: ["React", "Node.js", "Express", "SQLite"],
-  },
+
   {
     title: "Dornier Modern Architecture",
     description:
@@ -86,24 +75,6 @@ export const projects = [
     live: "https://dornier-modern-architecture.vercel.app/",
     github: "#",
     tech: ["React", "Tailwind CSS"],
-  },
-  {
-    title: "Portico",
-    description:
-      "An architecture portfolio site built from real portfolio material — PLACEHOLDER description, replace with the specific angle/focus of this build.",
-    image: p8,
-    live: "#", // TODO: add real live URL
-    github: "#",
-    tech: ["React", "Tailwind CSS"], // TODO: confirm actual stack
-  },
-  {
-    title: "Olayode Architects",
-    description:
-      "An architecture portfolio site built from real portfolio material — PLACEHOLDER description, replace with the specific angle/focus of this build.",
-    image: p9,
-    live: "#", // TODO: add real live URL
-    github: "#",
-    tech: ["React", "Tailwind CSS"], // TODO: confirm actual stack
   },
 ];
 
@@ -175,7 +146,6 @@ const Projects = ({ preview = false }) => {
           )}
         </motion.div>
 
-        {/* PROJECT GRID — stagger, one after another */}
         <motion.div
           variants={containerVariants}
           initial="hidden"

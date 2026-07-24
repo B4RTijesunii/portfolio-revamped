@@ -8,7 +8,6 @@ const Footer = () => {
       className="relative text-white px-6 md:px-20 py-12 overflow-hidden"
       style={{ background: "#030712" }}
     >
-      {/* AMBIENT GOLD GLOW — replaces old blue/purple glow pair */}
       <div
         className="absolute top-0 left-0 w-[200px] h-[200px] rounded-full pointer-events-none"
         style={{
