@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   SiHtml5,
   SiCss,
@@ -10,44 +11,71 @@ import {
   SiFigma,
 } from "react-icons/si";
 
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.08 } },
+};
+
+// single settle-in bounce, no infinite loop
+const iconItem = {
+  hidden: { opacity: 0, y: 0 },
+  show: {
+    opacity: 1,
+    y: [0, -14, 0],
+    transition: { duration: 0.6, ease: [0.34, 1.56, 0.64, 1] },
+  },
+};
+
 const Technologies = () => {
   const techs = [
-    { name: "HTML", icon: <SiHtml5 className="text-orange-500" /> },
-    { name: "CSS", icon: <SiCss className="text-blue-500" /> },
-    { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
-    { name: "React", icon: <SiReact className="text-cyan-400" /> },
-    { name: "Tailwind", icon: <SiTailwindcss className="text-sky-400" /> },
-    { name: "Node.js", icon: <SiNodedotjs className="text-green-500" /> },
-    { name: "Git", icon: <SiGit className="text-orange-600" /> },
-    { name: "Figma", icon: <SiFigma className="text-pink-400" /> },
+    { name: "HTML", icon: <SiHtml5 style={{ color: "#F3D18A" }} /> },
+    { name: "CSS", icon: <SiCss style={{ color: "#F3D18A" }} /> },
+    { name: "JavaScript", icon: <SiJavascript style={{ color: "#F3D18A" }} /> },
+    { name: "React", icon: <SiReact style={{ color: "#F3D18A" }} /> },
+    { name: "Tailwind", icon: <SiTailwindcss style={{ color: "#F3D18A" }} /> },
+    { name: "Node.js", icon: <SiNodedotjs style={{ color: "#F3D18A" }} /> },
+    { name: "Git", icon: <SiGit style={{ color: "#F3D18A" }} /> },
+    { name: "Figma", icon: <SiFigma style={{ color: "#F3D18A" }} /> },
   ];
 
   return (
-    <div className="w-full py-20 bg-white dark:bg-[#020617] text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="w-full py-20 text-white" style={{ background: "#030712" }}>
       <div className="max-w-6xl mx-auto px-4">
-        {/* SECTION HEADING */}
-        <p className="text-center text-gray-400 text-sm uppercase tracking-widest mb-8">
+        <p
+          className="text-center text-sm uppercase tracking-widest mb-8"
+          style={{ color: "#D4A35A" }}
+        >
           Technologies I work with
         </p>
 
-        {/* ICCONS GRID */}
-        <div className="bg-[#0F172A]/50 border border-white/5 rounded-2xl p-6 md:backdrop-blur-sm">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="rounded-2xl p-6"
+          style={{ background: "#0D1323", border: "0.5px solid #1B2336" }}
+        >
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center justify-items-center">
             {techs.map((tech, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={iconItem}
                 className="flex flex-col items-center gap-3 group transition-transform duration-300 hover:scale-110"
               >
                 <div className="text-3xl md:text-4xl opacity-80 group-hover:opacity-100 transition-opacity">
-                  {tech.icon}{" "}
+                  {tech.icon}
                 </div>
-                <span className="text-xs font-medium text-gray-400 group-hover:text-white transition-colors">
+                <span
+                  className="text-xs font-medium transition-colors"
+                  style={{ color: "#7B8191" }}
+                >
                   {tech.name}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

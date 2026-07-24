@@ -4,13 +4,9 @@ import App from "./App.jsx";
 import { HelmetProvider } from "react-helmet-async";
 
 import "./index.css";
-const savedTheme = localStorage.getItem("theme");
 
-if (savedTheme === "dark" || !savedTheme) {
-  document.documentElement.classList.add("dark");
-} else {
-  document.documentElement.classList.remove("dark");
-}
+// Theme is now fixed-dark (navy/gold system) — the old light/dark
+// toggle and localStorage theme logic have been removed.
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -23,4 +19,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </HelmetProvider>
   </React.StrictMode>,
 );
-console.log("MAIN jsx IS RUNNIMG");

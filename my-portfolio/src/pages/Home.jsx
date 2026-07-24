@@ -1,13 +1,14 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Technologies from "../components/Technologies";
-import Projects from "../components/Projects";
-import Contact from "../components/Contact";
 import About from "../components/About";
+import Projects from "../components/Projects";
+import CurrentlyBuilding from "../components/CurrentlyBuilding";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet-async";
 
-export default function Home({ toggleTheme, darkMode }) {
+export default function Home() {
   return (
     <>
       <Helmet>
@@ -17,11 +18,12 @@ export default function Home({ toggleTheme, darkMode }) {
           content="Olayode Oyebanke is a frontend developer in Nigeria specializing in React, JavaScript, and Tailwind CSS. Explore modern, responsive web projects."
         />
       </Helmet>
-      <Navbar toggleTheme={toggleTheme} darkMode={darkMode} />
+      <Navbar />
       <Hero />
       <Technologies />
       <About />
-      <Projects />
+      <Projects preview />
+      <CurrentlyBuilding preview />
       <Contact />
       <Footer />
     </>

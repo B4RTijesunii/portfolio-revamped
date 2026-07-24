@@ -1,144 +1,197 @@
 import React, { useState, useEffect } from "react";
-import { FiSun, FiMoon } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-export default function Navbar({ toggleTheme, darkMode }) {
+// anchors scroll-spy on home page sections; "link" navigates to its own page
+const links = [
+  { label: "Home", type: "anchor", target: "home" },
+  { label: "About", type: "anchor", target: "about" },
+  { label: "Projects", type: "anchor", target: "projects" },
+  { label: "Building", type: "link", target: "/building" },
+  { label: "Contact", type: "anchor", target: "contact" },
+];
+
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const location = useLocation();
 
-  const navItems = ["home", "about", "projects", "blog", "contact"];
-
-  const linkClass = (section) =>
-    `relative transition cursor-pointer ${
-      activeSection === section
-        ? "text-blue-500"
-        : "text-gray-600 dark:text-gray-300 hover:text-blue-500"
-    }`;
-
-  // ✅ FIXED SCROLL SPY (safe mount timing)
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let mostVisible = null;
-        let maxRatio = 0;
+    const anchorTargets = links
+      .filter((l) => l.type === "anchor")
+      .map((l) => l.target);
 
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
-            maxRatio = entry.intersectionRatio;
-            mostVisible = entry.target.id;
-          }
-        });
+    const sections = anchorTargets
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
 
-        if (mostVisible) {
-          setActiveSection(mostVisible);
+    if (sections.length === 0) return;
+
+    const handleScroll = () => {
+      // 120px offset accounts for the fixed navbar height
+      const scrollPos = window.scrollY + 120;
+      let current = sections[0].id;
+
+      for (const section of sections) {
+        if (section.offsetTop <= scrollPos) {
+          current = section.id;
         }
-      },
-      {
-        threshold: [0.3, 0.6, 0.9],
-        rootMargin: "-80px 0px -40% 0px",
-      },
-    );
-
-    // delay ensures sections exist
-    const timeout = setTimeout(() => {
-      const sections = document.querySelectorAll("section[id]");
-      sections.forEach((section) => observer.observe(section));
-    }, 100);
-
-    return () => {
-      clearTimeout(timeout);
-      observer.disconnect();
+      }
+      setActiveSection(current);
     };
-  }, []);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [location.pathname]);
+
+  const isActive = (link) =>
+    link.type === "anchor"
+      ? location.pathname === "/" && activeSection === link.target
+      : location.pathname === link.target;
 
   return (
-    <nav className="w-full fixed top-0 left-0 z-50 backdrop-blur-xl border-b bg-white/80 dark:bg-[#030712]/80 border-black/10 dark:border-white/10">
+    <nav
+      className="w-full fixed top-0 left-0 z-50 backdrop-blur-xl"
+      style={{
+        background: "rgba(3, 7, 18, 0.8)",
+        borderBottom: "0.5px solid #1B2336",
+      }}
+    >
       <div className="max-w-7xl mx-auto h-16 flex items-center justify-between px-6 md:px-12">
         {/* LOGO */}
-        <div className="flex items-center gap-2 cursor-pointer">
-          <span className="text-xl font-semibold text-gray-900 dark:text-white">
-            Olayode
+        <a href="#home" className="flex items-center cursor-pointer">
+          <span className="text-lg font-semibold" style={{ color: "#FFFFFF" }}>
+            olayode
           </span>
-          <span className="text-[#6366F1] font-semibold">.dev</span>
-        </div>
+          <span className="text-lg font-semibold" style={{ color: "#F3D18A" }}>
+            .dev
+          </span>
+        </a>
 
         {/* DESKTOP NAV */}
         <ul className="hidden md:flex items-center gap-10 text-sm font-medium">
-          {navItems.map((item) => (
-            <li key={item} className="relative">
-              <a href={`#${item}`} className={linkClass(item)}>
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </a>
-
-              {activeSection === item && (
-                <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-blue-500 rounded-full"></span>
-              )}
-            </li>
-          ))}
+          {links.map((link) =>
+            link.type === "anchor" ? (
+              <li key={link.label} className="relative">
+                <a
+                  href={`#${link.target}`}
+                  className="relative transition"
+                  style={{ color: isActive(link) ? "#F3D18A" : "#A6ADBB" }}
+                >
+                  {link.label}
+                </a>
+                {isActive(link) && (
+                  <span
+                    className="absolute left-0 -bottom-1 w-full h-[2px] rounded-full"
+                    style={{ background: "#F3D18A" }}
+                  ></span>
+                )}
+              </li>
+            ) : (
+              <li key={link.label} className="relative">
+                <Link
+                  to={link.target}
+                  className="relative transition"
+                  style={{ color: isActive(link) ? "#F3D18A" : "#A6ADBB" }}
+                >
+                  {link.label}
+                </Link>
+                {isActive(link) && (
+                  <span
+                    className="absolute left-0 -bottom-1 w-full h-[2px] rounded-full"
+                    style={{ background: "#F3D18A" }}
+                  ></span>
+                )}
+              </li>
+            ),
+          )}
         </ul>
 
         {/* RIGHT SIDE */}
         <div className="flex items-center gap-4">
-          {/* THEME TOGGLE */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-lg bg-gray-200 dark:bg-white/10 hover:scale-105 transition"
-          >
-            {darkMode ? (
-              <FiSun className="text-white text-lg" />
-            ) : (
-              <FiMoon className="text-gray-800 dark:text-white text-lg" />
-            )}
-          </button>
-
           {/* RESUME */}
           <Link
             to="/resume"
-            className="hidden md:block px-5 py-2 bg-indigo-500 hover:bg-indigo-600 text-sm rounded-lg transition text-white"
+            className="hidden md:block px-5 py-2 text-sm rounded-lg transition"
+            style={{
+              background: "rgba(243, 209, 138, 0.15)",
+              color: "#F4D392",
+              border: "0.5px solid #F3D18A",
+            }}
           >
             Resume
           </Link>
 
           {/* HAMBURGER */}
-          <div
-            className="md:hidden cursor-pointer"
+          <button
+            className="md:hidden cursor-pointer w-6 h-6 relative"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
           >
-            <div className="space-y-1">
-              <span className="block w-6 h-[2px] bg-gray-800 dark:bg-gray-300"></span>
-              <span className="block w-6 h-[2px] bg-gray-800 dark:bg-gray-300"></span>
-              <span className="block w-6 h-[2px] bg-gray-800 dark:bg-gray-300"></span>
-            </div>
-          </div>
+            <span
+              className="absolute left-0 w-6 h-[2px] transition-all duration-300"
+              style={{
+                background: "#E5E7EB",
+                top: menuOpen ? "11px" : "6px",
+                transform: menuOpen ? "rotate(45deg)" : "rotate(0deg)",
+              }}
+            ></span>
+            <span
+              className="absolute left-0 top-[11px] w-6 h-[2px] transition-all duration-300"
+              style={{ background: "#E5E7EB", opacity: menuOpen ? 0 : 1 }}
+            ></span>
+            <span
+              className="absolute left-0 w-6 h-[2px] transition-all duration-300"
+              style={{
+                background: "#E5E7EB",
+                top: menuOpen ? "11px" : "16px",
+                transform: menuOpen ? "rotate(-45deg)" : "rotate(0deg)",
+              }}
+            ></span>
+          </button>
         </div>
       </div>
 
       {/* MOBILE MENU */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 bg-white dark:bg-[#020617] px-6 ${
-          menuOpen ? "max-h-80 py-4" : "max-h-0"
+        className={`md:hidden overflow-hidden transition-all duration-300 px-6 ${
+          menuOpen ? "max-h-96 py-4" : "max-h-0"
         }`}
+        style={{ background: "#030712" }}
       >
         <div className="flex flex-col gap-4 text-sm font-medium">
-          {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item}`}
-              onClick={() => setMenuOpen(false)}
-              className={
-                activeSection === item
-                  ? "text-blue-500"
-                  : "text-gray-700 dark:text-gray-300"
-              }
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </a>
-          ))}
+          {links.map((link) =>
+            link.type === "anchor" ? (
+              <a
+                key={link.label}
+                href={`#${link.target}`}
+                onClick={() => setMenuOpen(false)}
+                style={{ color: isActive(link) ? "#F3D18A" : "#A6ADBB" }}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.label}
+                to={link.target}
+                onClick={() => setMenuOpen(false)}
+                style={{ color: isActive(link) ? "#F3D18A" : "#A6ADBB" }}
+              >
+                {link.label}
+              </Link>
+            ),
+          )}
 
           <Link
             to="/resume"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 px-5 py-2 bg-indigo-500 hover:bg-indigo-600 text-sm rounded-lg transition text-white text-center"
+            className="mt-2 px-5 py-2 text-sm rounded-lg transition text-center"
+            style={{
+              background: "rgba(243, 209, 138, 0.15)",
+              color: "#F4D392",
+              border: "0.5px solid #F3D18A",
+            }}
           >
             Resume
           </Link>
