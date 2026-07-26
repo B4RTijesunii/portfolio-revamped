@@ -7,9 +7,9 @@ import p4 from "../assets/cleardifference.png";
 import p5 from "../assets/moviewebsite.png";
 import p6 from "../assets/Architecture.png";
 import p7 from "../assets/b4rlibrary.png";
-// TODO: replace with real screenshots once available
-import p8 from "../assets/Architecture.png"; // placeholder — swap for Portico screenshot
-import p9 from "../assets/Architecture.png"; // placeholder — swap for Olayode Architects screenshot
+
+import p8 from "../assets/Architecture.png";
+import p9 from "../assets/Architecture.png";
 
 export const projects = [
   {
@@ -20,6 +20,7 @@ export const projects = [
     live: "https://final-news-homepage.vercel.app/",
     github: "#",
     tech: ["React", "Tailwind CSS"],
+    featured: false,
   },
   {
     title: "E-commerce UI",
@@ -29,6 +30,7 @@ export const projects = [
     live: "https://b4rshoppingwebsite.vercel.app/",
     github: "#",
     tech: ["HTML", "CSS", "Bootstrap 5", "JavaScript"],
+    featured: false,
   },
   {
     title: "Weather App",
@@ -37,6 +39,8 @@ export const projects = [
     image: p3,
     live: "https://meteor-weather-app.vercel.app/",
     github: "#",
+    tech: ["HTML", "CSS", "Bootstrap 5", "JavaScript", "Weather API"],
+    featured: false,
   },
   {
     title: "Clear Difference Event",
@@ -46,6 +50,7 @@ export const projects = [
     live: "https://clear-difference-event.vercel.app/",
     github: "#",
     tech: ["React", "Vite", "Tailwind CSS", "EmailJS"],
+    featured: true,
   },
   {
     title: "B4RStudio",
@@ -55,6 +60,7 @@ export const projects = [
     live: "https://b4rstudio.vercel.app/",
     github: "#",
     tech: ["React", "Vite", "Tailwind CSS", "TMDB API"],
+    featured: true,
   },
   {
     title: "Boyede Studio",
@@ -65,6 +71,7 @@ export const projects = [
     github: "#",
 
     tech: ["React", "Tailwind CSS"],
+    featured: false,
   },
 
   {
@@ -75,6 +82,7 @@ export const projects = [
     live: "https://dornier-modern-architecture.vercel.app/",
     github: "#",
     tech: ["React", "Tailwind CSS"],
+    featured: true,
   },
 ];
 
@@ -93,7 +101,9 @@ const cardVariants = {
 };
 
 const Projects = ({ preview = false }) => {
-  const visibleProjects = preview ? projects.slice(0, 3) : projects;
+  const visibleProjects = preview
+    ? projects.filter((p) => p.featured)
+    : projects;
 
   return (
     <section

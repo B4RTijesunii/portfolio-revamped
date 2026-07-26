@@ -62,7 +62,7 @@ const About = () => {
             <div className="mt-6 inline-flex items-end">
               <span
                 style={{
-                  fontFamily: "'Alex Brush', cursive",
+                  fontFamily: "'', cursive",
                   color: "#E7B96C",
                   fontSize: "2.75rem",
                   lineHeight: 1,
