@@ -84,9 +84,10 @@ const Hero = () => {
             className="max-w-md mx-auto md:mx-0 text-base leading-relaxed"
             style={{ color: "#A6ADBB" }}
           >
-            I build interfaces with the kind of restraint that only comes from
-            caring too much about the details — clean architecture, deliberate
-            motion, no wasted pixels.
+            From idea to interface, I create responsive, user-centered
+            experiences that balance performance, usability anf visual design.{" "}
+            <br /> Currently exploring backend development, animations and
+            mobile apps.
           </motion.p>
 
           {/* BUTTONS */}
