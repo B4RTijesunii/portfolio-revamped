@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Projects from "../components/Projects";
 
-export default function AllProjects() {
+export default function Allprojects() {
   const navigate = useNavigate();
 
   return (
