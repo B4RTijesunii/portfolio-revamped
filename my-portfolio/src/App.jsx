@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Resume from "./components/Resume";
 import Building from "./pages/Building";
-import Allprojects from "./pages/Allprojects";
+import AllProjects from "./pages/AllProjects";
 
 export default function App() {
   return (
