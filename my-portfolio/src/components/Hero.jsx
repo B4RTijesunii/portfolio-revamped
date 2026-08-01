@@ -60,7 +60,7 @@ const Hero = () => {
             className="inline-block text-xs tracking-[0.2em] uppercase font-medium"
             style={{ color: "#D4A35A" }}
           >
-            Frontend developer · Lagos, Nigeria
+            Freelance Frontend developer
           </motion.span>
 
           <motion.h1
@@ -85,7 +85,7 @@ const Hero = () => {
             style={{ color: "#A6ADBB" }}
           >
             From idea to interface, I create responsive, user-centered
-            experiences that balance performance, usability anf visual design.{" "}
+            experiences that balance performance, usability and visual design.{" "}
             <br /> Currently exploring backend development, animations and
             mobile apps.
           </motion.p>
