@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import headshot from "../assets/headshot.jpeg";
+import headshot from "../assets/headshot-cutout.png";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const container = {
@@ -39,6 +39,7 @@ const Hero = () => {
           "linear-gradient(180deg, #030712, #050816, #090B14, #030712)",
       }}
     >
+      {/* GOLD AMBIENT GLOW — single, soft, off-center */}
       <div
         className="absolute top-[-120px] right-[-80px] w-[480px] h-[480px] rounded-full pointer-events-none"
         style={{
@@ -60,7 +61,7 @@ const Hero = () => {
             className="inline-block text-xs tracking-[0.2em] uppercase font-medium"
             style={{ color: "#D4A35A" }}
           >
-            Freelance Frontend developer
+            Frontend developer · Lagos, Nigeria
           </motion.span>
 
           <motion.h1
@@ -84,10 +85,9 @@ const Hero = () => {
             className="max-w-md mx-auto md:mx-0 text-base leading-relaxed"
             style={{ color: "#A6ADBB" }}
           >
-            From idea to interface, I create responsive, user-centered
-            experiences that balance performance, usability and visual design.{" "}
-            <br /> Currently exploring backend development, animations and
-            mobile apps.
+            I build interfaces with the kind of restraint that only comes from
+            caring too much about the details — clean architecture, deliberate
+            motion, no wasted pixels.
           </motion.p>
 
           {/* BUTTONS */}
@@ -208,24 +208,20 @@ const Hero = () => {
             ✦
           </span>
 
+          {/* PORTRAIT — transparency + edge fade are baked into the PNG itself */}
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-            className="relative z-10 w-[280px] md:w-[380px] aspect-[3/4]"
+            className="relative z-10 w-[300px] md:w-[400px] aspect-[3/4]"
           >
             <img
               src={headshot}
               alt="Olayode Oyebanke"
-              className="w-full h-full object-cover"
-              style={{
-                maskImage:
-                  "radial-gradient(ellipse 68% 78% at 50% 45%, black 55%, transparent 100%)",
-                WebkitMaskImage:
-                  "radial-gradient(ellipse 68% 78% at 50% 45%, black 55%, transparent 100%)",
-              }}
+              className="w-full h-full object-contain"
             />
           </motion.div>
 
+          {/* side caption, mirrors the reference */}
           <div
             className="hidden md:block absolute text-[11px] leading-relaxed text-right"
             style={{ color: "#7B8191", top: "22%", right: "0" }}
