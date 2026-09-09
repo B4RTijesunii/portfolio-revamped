@@ -56,6 +56,13 @@ export const builds = [
     description: "A full-stack app that tracks savings and expenses",
     tech: ["React", "Vite", "Tailwind CSS"],
   },
+  {
+    name: "Travel Someday",
+    status: "Early stage",
+    description:
+      "A website that has fully researched places to go and food to eat in every continent",
+    tech: ["React", "Vite", "Tailwind CSS"],
+  },
 ];
 
 const CurrentlyBuilding = ({ preview = false }) => {
