@@ -7,9 +7,7 @@ import p4 from "../assets/cleardifference.png";
 import p5 from "../assets/moviewebsite.png";
 import p6 from "../assets/Architecture.png";
 import p7 from "../assets/b4rlibrary.png";
-
-import p8 from "../assets/Architecture.png";
-import p9 from "../assets/Architecture.png";
+import p10 from "../assets/devtrack.png";
 
 export const projects = [
   {
@@ -82,6 +80,16 @@ export const projects = [
     live: "https://dornier-modern-architecture.vercel.app/",
     github: "#",
     tech: ["React", "Tailwind CSS"],
+    featured: false,
+  },
+  {
+    title: "DevTrack",
+    description:
+      "A full-stack app that tracks GitHub commit and gives review of progress weekly.",
+    image: p10,
+    live: "https://b4rdevtrack.vercel.app/overview",
+    github: "",
+    tech: ["React", "Tailwind CSS", "Vite", "GitHub API", "Grok API"],
     featured: true,
   },
 ];

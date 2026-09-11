@@ -89,7 +89,7 @@ const Contact = () => {
 
           {/* CONTACT DETAILS */}
           <div className="space-y-4 mb-8 text-sm">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 hover:text-[#F3D18A]">
               <FaMapMarkerAlt style={{ color: "#7B8191" }} />
               <span style={{ color: "#A6ADBB" }}>Lagos, Nigeria</span>
             </div>
@@ -97,7 +97,7 @@ const Contact = () => {
               <FaEnvelope style={{ color: "#7B8191" }} />
               <a
                 href="mailto:oyebankeolayode@gmail.com"
-                className="transition hover:text-white"
+                className="transition hover:text-[#F3D18A]"
                 style={{ color: "#A6ADBB" }}
               >
                 oyebankeolayode@gmail.com
@@ -111,7 +111,7 @@ const Contact = () => {
               href="https://github.com/B4RTijesunii"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition hover:text-white"
+              className="transition hover:text-[#F3D18A]"
             >
               <FaGithub />
             </a>

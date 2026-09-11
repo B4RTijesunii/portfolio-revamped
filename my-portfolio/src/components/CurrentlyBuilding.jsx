@@ -43,13 +43,7 @@ export const builds = [
       "The next version of Cineflux — smarter recommendations and features built on lessons from v1.",
     tech: ["React", "Vite", "TMDB API"],
   },
-  {
-    name: "DevTrack",
-    status: "In development",
-    description:
-      "A full-stack app that tracks GitHub commit and gives review of progress weekly.",
-    tech: ["React", "Tailwind CSS", "Vite", "GitHub API", "Gemini API"],
-  },
+
   {
     name: "B4R Wallet",
     status: "Early stage",

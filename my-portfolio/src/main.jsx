@@ -5,9 +5,6 @@ import { HelmetProvider } from "react-helmet-async";
 
 import "./index.css";
 
-// Theme is now fixed-dark (navy/gold system) — the old light/dark
-// toggle and localStorage theme logic have been removed.
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>
